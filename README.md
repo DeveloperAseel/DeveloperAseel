@@ -35,7 +35,7 @@ A responsive calendar for creating, organizing, searching, and filtering persona
 - **Programming:** Java, Python, JavaScript, SQL
 - **Web:** HTML, CSS, Bootstrap
 - **Cybersecurity:** GRC, security awareness, phishing simulations, CTI fundamentals
-- **Tools:** Git, Excel, PowerPoint, JMeter, AWS fundamentals
+- **Tools:** Git, Excel, PowerPoint, JMeter
 
 ## Current focus
 
