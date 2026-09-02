@@ -18,17 +18,11 @@ A Java security tool that uses SHA-256 hashes to detect added, modified, and del
 
 A responsive web dashboard for managing applications, interviews, and offers using HTML, CSS, JavaScript, and local storage.
 
-### [University Registration Database](https://github.com/DeveloperAseel/University-Registration-Database)
-
-A relational SQL database for managing students, instructors, courses, class sections, and registrations.
-
 ### [Clinic Appointment Database](https://github.com/DeveloperAseel/Clinic-Appointment-Database)
 
 A relational SQL database for clinic schedules, doctors, patients, appointments, and operational reports.
 
-### [Event Planner](https://github.com/DeveloperAseel/Event-Planner)
 
-A responsive calendar for creating, organizing, searching, and filtering personal events.
 
 ## Technical toolkit
 
