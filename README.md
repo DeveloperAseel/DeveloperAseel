@@ -24,6 +24,10 @@ A relational SQL database for clinic schedules, doctors, patients, appointments,
 
 
 
+### [Cyber Risk Register](https://github.com/DeveloperAseel/DeveloperAseel/tree/main/Cyber-Risk-Register)
+
+A Java console application that records cybersecurity risks, calculates likelihood and impact scores, and highlights high-priority risks.
+
 ## Technical toolkit
 
 - **Programming:** Java, Python, JavaScript, SQL
