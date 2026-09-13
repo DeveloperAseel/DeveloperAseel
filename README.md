@@ -28,6 +28,10 @@ A relational SQL database for clinic schedules, doctors, patients, appointments,
 
 A Java console application that records cybersecurity risks, calculates likelihood and impact scores, and highlights high-priority risks.
 
+### [Phishing Campaign Metrics Analyzer](https://github.com/DeveloperAseel/DeveloperAseel/tree/main/Phishing-Campaign-Metrics)
+
+A Python tool that analyzes phishing simulation data and calculates open, click, and report rates for cybersecurity awareness campaigns.
+
 ## Technical toolkit
 
 - **Programming:** Java, Python, JavaScript, SQL
