@@ -32,6 +32,10 @@ A Java console application that records cybersecurity risks, calculates likeliho
 
 A Python tool that analyzes phishing simulation data and calculates open, click, and report rates for cybersecurity awareness campaigns.
 
+### [IT Audit Findings Tracker](https://github.com/DeveloperAseel/DeveloperAseel/tree/main/IT-Audit-Findings-Tracker)
+
+A relational SQL database for recording IT audits, prioritizing findings, tracking remediation owners and due dates, and measuring closure progress.
+
 ## Technical toolkit
 
 - **Programming:** Java, Python, JavaScript, SQL
