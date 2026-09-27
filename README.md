@@ -2,7 +2,7 @@
 
 Information Technology graduate based in Riyadh, Saudi Arabia. I am interested in cybersecurity governance, Java development, and practical technology solutions that improve everyday work.
 
-My experience includes cybersecurity awareness initiatives, phishing simulation reporting, governance documentation, digital transformation projects, and user interface testing. I am also developing my knowledge of AI and agentic systems.
+My experience includes cybersecurity awareness initiatives, phishing simulation reporting, governance documentation, digital transformation projects, and user interface testing. I am also strengthening my Java, SQL, and cybersecurity analysis skills.
 
 ## Selected projects
 
@@ -36,6 +36,10 @@ A Python tool that analyzes phishing simulation data and calculates open, click,
 
 A relational SQL database for recording IT audits, prioritizing findings, tracking remediation owners and due dates, and measuring closure progress.
 
+### [IOC Extractor](https://github.com/DeveloperAseel/DeveloperAseel/tree/main/IOC-Extractor)
+
+A Java command-line tool that extracts URLs, IPv4 addresses, email addresses, and SHA-256 hashes from security alerts for CTI review.
+
 ## Technical toolkit
 
 - **Programming:** Java, Python, JavaScript, SQL
@@ -47,4 +51,4 @@ A relational SQL database for recording IT audits, prioritizing findings, tracki
 
 - Building stronger Java and backend development skills
 - Applying cybersecurity governance concepts to practical projects
-- Learning how agentic AI systems plan, use tools, and complete workflows
+- Building practical cybersecurity and IT audit tools
