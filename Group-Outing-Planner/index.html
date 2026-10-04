@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>طلعة — ترضي الشلة</title>
+  <style>
+    :root{--ink:#302944;--muted:#706b7c;--purple:#6d4bc5;--paper:#fffdf9;--line:#e9e4ee;--pink:#f3e7e6}
+    *{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font-family:Tahoma,"Segoe UI",sans-serif;line-height:1.7}
+    button,input,select,textarea{font:inherit}button{cursor:pointer}button:disabled{cursor:wait;opacity:.65}
+    .shell{max-width:1140px;margin:auto;padding:0 28px}header{display:flex;align-items:center;justify-content:space-between;padding-top:25px;padding-bottom:25px;border-bottom:1px solid var(--line)}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:800;font-size:23px}.brand-mark{display:grid;place-items:center;background:var(--purple);color:white;width:42px;height:42px;border-radius:14px}.tiny{font-size:12px;color:var(--muted)}
+    .tag{font-size:12px;border:1px solid var(--line);padding:6px 12px;border-radius:30px;background:white}.hero{display:grid;grid-template-columns:1.4fr 1fr;align-items:center;gap:40px;padding:48px 0 38px}
+    .eyebrow{font-size:12px;font-weight:bold;color:var(--purple);letter-spacing:1px}h1{font-size:clamp(32px,4.4vw,52px);line-height:1.4;letter-spacing:-1.5px;margin:13px 0}h1 span{color:var(--purple)}p{margin:8px 0;color:var(--muted)}
+    .hero-note{max-width:540px}.visual{position:relative;padding:25px 10px}.agent-card{border-radius:22px;padding:21px;background:#eee8fa;border:1px solid #e0d5f5;max-width:310px;transform:rotate(-3deg)}.agent-card.second{background:var(--pink);border-color:#ead4d2;margin:-2px 55px 0 0;transform:rotate(3deg)}
+    .agent-card strong{display:block;font-size:17px}.agent-card small{color:var(--muted);font-size:12px}.agent-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}.bubble{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#fff9;font-weight:bold}.connector{margin:12px 100px 12px 0;color:var(--purple);font-size:12px}
+    .workspace{display:grid;grid-template-columns:1fr 1.06fr;gap:24px;align-items:start;padding-bottom:38px}.panel{border:1px solid var(--line);background:white;border-radius:24px;padding:26px;box-shadow:0 8px 30px #30294404}h2{font-size:21px;margin:0 0 3px}.sub{font-size:13px;margin:0 0 22px}.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:17px}.wide{grid-column:1/-1}label{display:block;font-size:13px;font-weight:bold;margin-bottom:7px}
+    input,select,textarea{width:100%;border:1px solid #ded9e6;border-radius:11px;padding:10px 12px;background:#fdfcfe;color:var(--ink);font-size:14px;min-height:44px}textarea{resize:vertical;min-height:79px}input:focus,select:focus,textarea:focus{outline:3px solid #ece4ff;border-color:var(--purple)}:focus-visible{outline:3px solid #b49be8;outline-offset:3px}
+    .time-row{display:flex;gap:12px}.time-row>div{flex:1}input[type=time],input[type=date]{direction:ltr;text-align:right}.mode-box{display:flex;gap:10px;padding:15px 0 4px}.mode-option{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:normal}.mode-option input{width:16px;min-height:16px;accent-color:var(--purple)}.mode-note{font-size:11px;min-height:22px}.primary{width:100%;border:0;background:var(--purple);color:white;border-radius:12px;padding:13px 18px;font-weight:bold;margin-top:14px;box-shadow:0 6px 15px #6d4bc520}.primary:hover{background:#5838ac}.example{border:0;background:none;color:var(--purple);font-size:12px;padding:0;margin-top:13px;text-decoration:underline}.error{color:#a4293f;background:#fff1f3;padding:12px;border-radius:10px;font-size:13px;margin-top:12px}
+    .result-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.empty{padding:30px 12px;text-align:center}.empty-icon{font-size:34px;color:var(--purple);margin-bottom:15px}.empty h3{font-size:17px;margin:0 0 7px}.empty p{font-size:13px}.steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:24px}.step{background:#f6f3fb;border-radius:14px;padding:15px;font-size:12px}.step b{display:block;color:var(--purple);margin-bottom:3px}.status{font-size:11px;padding:5px 10px;border-radius:20px;background:#f0eafa;color:var(--purple)}.status.pending{background:#fff0de;color:#865716}
+    .plan{white-space:pre-wrap;overflow-wrap:anywhere;font-size:14px;line-height:1.95;margin:20px 0}.plan a{color:var(--purple)}.review-box{padding:15px;background:#f8f5fc;border-radius:14px;font-size:13px}.review-box p{color:var(--ink)}.review-box ul{padding-right:20px;margin-bottom:0;color:var(--muted)}details{margin-top:20px;border-top:1px solid var(--line);padding-top:13px}summary{cursor:pointer;font-size:13px;font-weight:bold}.trace{white-space:pre-wrap;overflow-wrap:anywhere;font-size:12px;max-height:300px;overflow:auto;background:#fdfcfe;padding:14px;border-radius:10px;margin-top:12px}.loading{padding:42px 8px;text-align:center}.spinner{height:32px;width:32px;border:3px solid #ece5f6;border-top-color:var(--purple);border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 18px}@keyframes spin{to{transform:rotate(360deg)}}
+    footer{display:flex;justify-content:space-between;gap:15px;border-top:1px solid var(--line);padding:20px 0 28px;font-size:11px;color:var(--muted)}footer a{color:var(--muted)}[hidden]{display:none!important}@media(max-width:760px){.shell{padding:0 18px}.hero{grid-template-columns:1fr;padding:30px 0;gap:10px}.visual{display:none}.workspace{grid-template-columns:1fr}.panel{padding:22px}.tag{font-size:10px}h1{font-size:35px}footer{flex-direction:column}}@media(max-width:390px){.form-grid{grid-template-columns:1fr}.wide{grid-column:auto}.mode-box{flex-direction:column}}
+    @media(prefers-reduced-motion:reduce){.spinner{animation:none}}
+  </style>
+</head>
+<body>
+<div class="shell">
+  <header><div class="brand"><span class="brand-mark" aria-hidden="true">↗</span>طلعة<span class="tiny">ترضي الشلة</span></div><span class="tag">رغبتين، وخطة تجمعكم</span></header>
+  <main>
+    <section class="hero">
+      <div><div class="eyebrow">طلعتكم الجاية تبدأ هنا</div><h1>أنتوا اختاروا الجو.<br><span>وخلّوا التخطيط علينا.</span></h1><p class="hero-note">واحد يبي نشاط، والثاني يبي هدوء؟ قولوا لنا وش تحبّون، والباحث والمنسّق يتعاونون على خطة تناسبكم في الرياض.</p></div>
+      <div class="visual" aria-hidden="true"><div class="agent-card"><div class="agent-top"><strong>الباحث</strong><span class="bubble">١</span></div><small>يلقى الخيارات اللي تناسب رغباتكم</small></div><div class="connector">بحث ← مراجعة ← تعديل</div><div class="agent-card second"><div class="agent-top"><strong>المنسّق</strong><span class="bubble">٢</span></div><small>يراجع التفاصيل ويطلب البديل المناسب</small></div></div>
+    </section>
+    <div class="workspace">
+      <section class="panel"><h2>وش ودّكم تسوّون؟</h2><p class="sub">تفاصيل بسيطة عشان نبدأ نرتّب طلعتكم.</p>
+        <form id="outing-form">
+          <div class="form-grid">
+            <div><label for="date">تاريخ الطلعة</label><input id="date" name="date" type="date" required></div>
+            <div><label for="budget">ميزانية كل شخص · ريال</label><input id="budget" name="budget" type="number" min="1" max="10000" step="1" value="150" required></div>
+            <div class="wide time-row"><div><label for="start">من الساعة</label><input id="start" name="start" type="time" value="18:00" required></div><div><label for="end">إلى الساعة</label><input id="end" name="end" type="time" value="22:00" required></div></div>
+            <div class="wide"><label for="person1">الأول وش يحب؟</label><textarea id="person1" name="person1" maxlength="500" placeholder="مثلًا: نشاط خفيف، تجربة جديدة، بدون زحمة" required></textarea></div>
+            <div class="wide"><label for="person2">والثاني وش يحب؟</label><textarea id="person2" name="person2" maxlength="500" placeholder="مثلًا: مكان هادي، قهوة، وجلسة مريحة" required></textarea></div>
+            <div class="wide"><label for="area">أي جهة في الرياض؟</label><select id="area" name="area"><option value="">أي جهة تناسب الخطة</option><option>شمال الرياض</option><option>شرق الرياض</option><option>غرب الرياض</option><option>جنوب الرياض</option><option>وسط الرياض</option></select></div>
+          </div>
+          <div class="mode-box"><label class="mode-option"><input type="radio" name="mode" value="demo" checked>مثال تجريبي</label><label class="mode-option"><input id="live-mode" type="radio" name="mode" value="live" disabled>تخطيط فعلي</label></div>
+          <p id="mode-note" class="mode-note">المثال خيالي ويوضح شكل الخطة وتعاون الوكيلين.</p>
+          <button class="primary" type="submit" id="submit-btn">رتّبوا طلعتنا <span aria-hidden="true">↗</span></button>
+          <button class="example" type="button" id="fill-example">عبّي مثالًا جاهزًا</button>
+          <div id="error" class="error" role="alert" hidden></div>
+        </form>
+      </section>
+      <section class="panel" id="result-panel" aria-busy="false"><div class="result-head"><h2>خطة طلعتكم</h2><span class="status" id="status">بانتظار التفاصيل</span></div>
+        <div id="empty" class="empty"><div class="empty-icon" aria-hidden="true">✳</div><h3>طلعة تناسبكم الاثنين</h3><p>عبّوا التفاصيل، وبتظهر هنا الخطة<br>مع ملاحظات المنسّق والمعلومات اللي تحتاج تحقق.</p><div class="steps"><div class="step"><b>١ · بحث واقتراح</b>خيارات على ذوقكم</div><div class="step"><b>٢ · مراجعة وتعديل</b>ميزانية ووقت مناسبين</div></div></div>
+        <div id="loading" class="loading" hidden role="status"><div class="spinner" aria-hidden="true"></div><strong>قاعدين نجهّز خطتكم…</strong><p>البحث والمراجعة ممكن يأخذون عدة دقائق.<br>بتظهر تفاصيل التعاون بعد اكتمال المحاولة.</p></div>
+        <div id="result" hidden><p class="sub" id="result-note"></p><div class="plan" id="plan"></div><div class="review-box"><strong>ملاحظات المنسّق</strong><p id="feedback"></p><ul id="uncertainties"></ul></div><details><summary>كيف تعاون الباحث والمنسّق؟ <span id="rounds"></span></summary><div class="trace" id="trace"></div></details></div>
+        <p id="announcement" class="tiny" aria-live="polite"></p>
+      </section>
+    </div>
+  </main>
+  <footer><span>اقتراحات للتخطيط؛ تأكدوا من الأسعار والأوقات قبل الطلعة.</span><a href="https://github.com/DeveloperAseel/DeveloperAseel/tree/main/Group-Outing-Planner" target="_blank" rel="noopener noreferrer">مشروع Aseel Alsaad ↗</a></footer>
+</div>
+<script>
+  const $ = id => document.getElementById(id);
+  let liveEnabled = false;
+  const localDate = new Date();
+  localDate.setDate(localDate.getDate() + 1);
+  $('date').value = `${localDate.getFullYear()}-${String(localDate.getMonth()+1).padStart(2,'0')}-${String(localDate.getDate()).padStart(2,'0')}`;
+  function modeNote() {
+    const live = document.querySelector('input[name="mode"]:checked').value === 'live';
+    $('mode-note').textContent = live ? 'بحث فعلي عبر الخدمات؛ قد يستهلك رصيدًا من حسابك.' : liveEnabled ? 'المثال خيالي ويوضح التعاون. تقدرين تختارين التخطيط الفعلي.' : 'المثال خيالي. لتفعيل البحث الحقيقي، شغّلي الخادم بوضع --live.';
+  }
+  fetch('/api/config').then(r => {if (!r.ok) throw Error(); return r.json();}).then(data => {
+    liveEnabled = data.live_enabled;
+    $('live-mode').disabled = !liveEnabled;
+    modeNote();
+  }).catch(() => {$('mode-note').textContent = 'لتشغيل الصفحة، افتحيها من رابط الخادم بعد تشغيل python server.py.';});
+  document.querySelectorAll('input[name="mode"]').forEach(input => input.addEventListener('change',modeNote));
+  $('fill-example').addEventListener('click', () => {
+    $('person1').value = 'أحب نشاط خفيف وتجربة جديدة، وأفضّل مكان مو زحمة.';
+    $('person2').value = 'أحب القهوة والمكان الهادي والجلسة المريحة.';
+    $('budget').value = '150'; $('area').value = 'شمال الرياض';
+    $('person1').focus();
+  });
+  function renderTextWithLinks(element,text) {
+    element.replaceChildren();
+    const parts = String(text).split(/(https?:\/\/[^\s<>]+)/g);
+    for (const part of parts) {
+      if (/^https?:\/\//.test(part)) {
+        const url = part.replace(/[)\]،.]+$/g,'');
+        try {
+          const parsed = new URL(url);
+          if (parsed.protocol !== 'https:' && parsed.protocol !== 'http:') throw Error();
+          const a = document.createElement('a'); a.href = parsed.href; a.textContent = url;
+          a.target = '_blank'; a.rel = 'noopener noreferrer'; element.append(a,document.createTextNode(part.slice(url.length)));
+        } catch {element.append(document.createTextNode(part));}
+      } else element.append(document.createTextNode(part));
+    }
+  }
+  $('outing-form').addEventListener('submit', async event => {
+    event.preventDefault();
+    $('error').hidden = true;
+    if ($('end').value <= $('start').value) {
+      $('error').textContent = 'وقت النهاية لازم يكون بعد البداية في اليوم نفسه.'; $('error').hidden = false; return;
+    }
+    const data = Object.fromEntries(new FormData(event.currentTarget));
+    data.budget = Number(data.budget);
+    $('submit-btn').disabled = true; $('submit-btn').textContent = 'جاري ترتيب الطلعة…';
+    $('result').hidden = true; $('empty').hidden = true; $('loading').hidden = false;
+    $('result-panel').setAttribute('aria-busy','true'); $('status').textContent = 'قيد التجهيز';
+    $('announcement').textContent = '';
+    try {
+      const response = await fetch('/api/plan',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data)});
+      const result = await response.json();
+      if (!response.ok) throw Error(result.error || 'تعذّر تجهيز الخطة.');
+      renderTextWithLinks($('plan'),result.plan);
+      $('feedback').textContent = result.review.feedback;
+      $('uncertainties').replaceChildren();
+      result.review.uncertainties.forEach(item => {const li=document.createElement('li');li.textContent=item;$('uncertainties').append(li);});
+      $('trace').textContent = result.trace.join('\n\n');
+      $('rounds').textContent = `· ${result.rounds} جولات`;
+      $('status').textContent = result.demo ? 'مثال خيالي' : result.review.approved ? 'اجتازت المراجعة' : 'تحتاج تحققًا';
+      $('status').classList.toggle('pending',!result.review.approved);
+      $('result-note').textContent = result.demo ? 'عرض توضيحي فقط؛ لم يتم البحث عن أماكن حقيقية.' : 'خطة مقترحة؛ الأوقات والأسعار تحتاج تأكيدًا قبل الخروج.';
+      $('result').hidden = false; $('announcement').textContent = 'اكتملت المحاولة وظهرت الخطة وملاحظات المراجعة.';
+    } catch(error) {
+      $('error').textContent = error.message === 'Failed to fetch' ? 'تعذّر الاتصال بالخادم. تأكدي إنه شغّال ثم حاولي مرة ثانية.' : error.message;
+      $('error').hidden = false; $('empty').hidden = false; $('status').textContent = 'ما اكتملت المحاولة';
+    } finally {
+      $('loading').hidden = true; $('result-panel').setAttribute('aria-busy','false');
+      $('submit-btn').disabled = false; $('submit-btn').textContent = 'رتّبوا طلعتنا ↗';
+    }
+  });
+</script>
+</body>
+</html>
