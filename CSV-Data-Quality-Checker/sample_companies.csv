@@ -1,0 +1,6 @@
+company_id,company_name,city,industry,contact_email
+1,Example Solutions,Riyadh,Technology,contact@example.com
+2,Northwind Services,Jeddah,,sales@example.net
+3,Demo Health,Dammam,Healthcare,invalid-email
+4,Sample Retail,Riyadh,Retail,
+4,Sample Retail,Riyadh,Retail,
