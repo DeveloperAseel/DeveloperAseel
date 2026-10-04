@@ -40,6 +40,10 @@ A relational SQL database for recording IT audits, prioritizing findings, tracki
 
 A Java command-line tool that extracts URLs, IPv4 addresses, email addresses, and SHA-256 hashes from security alerts for CTI review.
 
+### [CSV Data Quality Checker](https://github.com/DeveloperAseel/DeveloperAseel/tree/main/CSV-Data-Quality-Checker)
+
+A Python automation tool that finds missing values, duplicate rows, and invalid email formats in CSV datasets and calculates data completeness.
+
 ## Technical toolkit
 
 - **Programming:** Java, Python, JavaScript, SQL
