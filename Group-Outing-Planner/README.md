@@ -4,7 +4,7 @@ A small Python project with two cooperating agents that plan an outing in Riyadh
 
 ## Requirements
 
-- Python 3.10 or newer. No packages to install; only the standard library is used.
+- Python 3.10 or newer and Streamlit (the only external package).
 - An OpenAI API key with model access and available billing/credits.
 - A Tavily API key with search/extract credits.
 - Internet access for live mode. A ChatGPT subscription does not supply API credits.
@@ -13,23 +13,27 @@ A small Python project with two cooperating agents that plan an outing in Riyadh
 
 ### Arabic web interface
 
-The responsive RTL interface includes a two-person preferences form, budget/date/time fields, a plan, review notes and a collaboration log. No frontend packages or build step are needed.
+The Streamlit interface includes a two-person preferences form, budget/date/time fields, a plan, review notes, a collaboration log and a text download. No HTML or JavaScript files are needed.
+
+Download this folder and open a terminal in it:
 
 ```bash
-python server.py
+python -m pip install -r requirements.txt
+python -m streamlit run app.py
 ```
 
-Open **http://127.0.0.1:8000** in your browser. This starts in demo mode: examples are fictional and make no API requests.
+Open the local URL printed by Streamlit (normally **http://localhost:8501**). The default is **مثال تجريبي**: examples are fictional and make no API requests.
 
-To enable actual agents, stop the server with Ctrl+C and run:
+To enable actual agents, create a local `.streamlit` folder inside this project folder and a `secrets.toml` file in it:
 
-```bash
-python server.py --live
+```toml
+OPENAI_API_KEY = "your-openai-key"
+TAVILY_API_KEY = "your-tavily-key"
 ```
 
-Enter both API keys in the terminal's hidden prompts, or provide the environment variables described below. Select **تخطيط فعلي** in the page. Keys stay in server memory and are not sent to the browser or saved. Live requests can incur API charges. The result and collaboration log appear after the run completes, not as a live stream.
+Use your actual keys only in your local secrets file, never in committed code. This file is excluded by `.gitignore`. Restart Streamlit and select **تخطيط فعلي** in the page. You can also use environment variables instead of a secrets file. The app reads keys on the server and never displays them in the page. Live requests can incur API charges. The result and collaboration log appear after the run completes, not as a live stream.
 
-If port 8000 is busy, use `python server.py --port 8001` and open the printed URL. Keep this server on your own computer: it is a local development app bound to loopback, not a production hosting setup. GitHub displays the source; opening `index.html` directly or using GitHub Pages alone will not run the Python agents.
+Results are kept in the current Streamlit session and can be downloaded; they are not written to a database. If you edit the form after running, the displayed summary identifies the previous request until you submit again. Refreshing the browser may reset the session. GitHub displays the source; it does not host the running Streamlit app. For a local-only binding, add `--server.address 127.0.0.1` to the run command.
 
 ### Command-line interface
 
@@ -80,8 +84,8 @@ Live mode sends your outing request to OpenAI and search queries/selected URLs t
 ## Files
 
 - `planner.py`: both agents, tools, revision loop and offline illustration.
-- `server.py`: local web server, input validation and API routing.
-- `index.html`: Arabic responsive frontend, styles and browser interactions.
+- `app.py`: Streamlit interface, validation and session results.
+- `requirements.txt`: Streamlit dependency.
 - `.gitignore`: excludes local secrets and Python caches.
 - `README.md`: setup and explanation.
 
@@ -91,7 +95,7 @@ Live mode sends your outing request to OpenAI and search queries/selected URLs t
 
 ## Validation
 
-Local checks cover Python syntax, the offline illustration, mocked tool calls, review validation, feedback transfer and the revision limit. The web interface is also checked against the demo API, invalid input and disabled live mode. These checks do not establish live model quality or verify actual venues. A live run requires your own API keys.
+Local checks cover Python syntax, the offline illustration, mocked tool calls, review validation, feedback transfer and the revision limit. Streamlit AppTest checks the form, demo output, session persistence, invalid input and missing credentials. These checks do not establish live model quality or verify actual venues. A live run requires your own API keys.
 
 ## References
 
@@ -99,4 +103,6 @@ Local checks cover Python syntax, the offline illustration, mocked tool calls, r
 - [OpenAI: Chat Completions API](https://developers.openai.com/api/reference/resources/chat)
 - [Tavily Search](https://docs.tavily.com/documentation/api-reference/endpoint/search)
 - [Tavily Extract](https://docs.tavily.com/documentation/api-reference/endpoint/extract)
-- [Python local HTTP server](https://docs.python.org/3/library/http.server.html)
+- [Streamlit forms](https://docs.streamlit.io/develop/api-reference/execution-flow/st.form)
+- [Streamlit session state](https://docs.streamlit.io/develop/api-reference/caching-and-state/st.session_state)
+- [Streamlit secrets](https://docs.streamlit.io/deploy/streamlit-community-cloud/deploy-your-app/secrets-management)
