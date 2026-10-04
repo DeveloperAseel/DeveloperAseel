@@ -116,7 +116,7 @@ class Model:
         return message
 
 
-def run_agent(label, system, task, model, web):
+def run_agent(label, system, task, model, web, log=print):
     messages = [{"role": "system", "content": system},
                 {"role": "user", "content": task}]
     for turn in range(MAX_TOOL_ROUNDS + 1):
@@ -135,7 +135,7 @@ def run_agent(label, system, task, model, web):
                          "tool_calls": calls})
         for call in calls:
             name = call["function"]["name"]
-            print(f"[{label}] {name}")
+            log(f"[{label}] {name}")
             try:
                 args = json.loads(call["function"]["arguments"])
                 result = web.call(name, args) if isinstance(args, dict) else {"error": "Arguments must be an object."}
@@ -159,24 +159,24 @@ def parse_review(text):
     return review
 
 
-def plan_outing(request, model, web):
+def plan_outing(request, model, web, log=print):
     feedback = ""
     for revision in range(MAX_REVISIONS + 1):
-        print(f"\n--- جولة {revision + 1} ---")
+        log(f"\n--- جولة {revision + 1} ---")
         draft = run_agent("الباحث", RESEARCHER,
-                          request + "\nملاحظات المنسق:\n" + feedback, model, web)
-        print("\nاقتراح الباحث:\n" + draft)
+                          request + "\nملاحظات المنسق:\n" + feedback, model, web, log)
+        log("\nاقتراح الباحث:\n" + draft)
         review = parse_review(run_agent("المنسق", COORDINATOR,
-                                         request + "\nخطة الباحث:\n" + draft, model, web))
-        print("\nمراجعة المنسق:\n" + review["feedback"])
+                                         request + "\nخطة الباحث:\n" + draft, model, web, log))
+        log("\nمراجعة المنسق:\n" + review["feedback"])
         if review["approved"]:
             break
         feedback = json.dumps(review, ensure_ascii=False)
     status = "اجتازت مراجعة المنسق؛ تحققي من التفاصيل قبل الخروج." if review["approved"] else \
              "خطة أولية لم تجتز المراجعة؛ بقيت نقاط تحتاج تحققًا."
-    print("\n" + status)
+    log("\n" + status)
     for uncertainty in review["uncertainties"]:
-        print("- " + uncertainty)
+        log("- " + uncertainty)
     return {"plan": draft, "review": review, "rounds": revision + 1}
 
 
