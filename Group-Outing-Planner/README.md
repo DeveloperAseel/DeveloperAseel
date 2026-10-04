@@ -11,6 +11,28 @@ A small Python project with two cooperating agents that plan an outing in Riyadh
 
 ## Run
 
+### Arabic web interface
+
+The responsive RTL interface includes a two-person preferences form, budget/date/time fields, a plan, review notes and a collaboration log. No frontend packages or build step are needed.
+
+```bash
+python server.py
+```
+
+Open **http://127.0.0.1:8000** in your browser. This starts in demo mode: examples are fictional and make no API requests.
+
+To enable actual agents, stop the server with Ctrl+C and run:
+
+```bash
+python server.py --live
+```
+
+Enter both API keys in the terminal's hidden prompts, or provide the environment variables described below. Select **تخطيط فعلي** in the page. Keys stay in server memory and are not sent to the browser or saved. Live requests can incur API charges. The result and collaboration log appear after the run completes, not as a live stream.
+
+If port 8000 is busy, use `python server.py --port 8001` and open the printed URL. Keep this server on your own computer: it is a local development app bound to loopback, not a production hosting setup. GitHub displays the source; opening `index.html` directly or using GitHub Pages alone will not run the Python agents.
+
+### Command-line interface
+
 Download this folder, open a terminal in it, then run:
 
 ```bash
@@ -58,6 +80,8 @@ Live mode sends your outing request to OpenAI and search queries/selected URLs t
 ## Files
 
 - `planner.py`: both agents, tools, revision loop and offline illustration.
+- `server.py`: local web server, input validation and API routing.
+- `index.html`: Arabic responsive frontend, styles and browser interactions.
 - `.gitignore`: excludes local secrets and Python caches.
 - `README.md`: setup and explanation.
 
@@ -67,7 +91,7 @@ Live mode sends your outing request to OpenAI and search queries/selected URLs t
 
 ## Validation
 
-Local checks cover Python syntax, the offline illustration, mocked tool calls, review validation, feedback transfer and the revision limit. These checks do not establish live model quality or verify actual venues. A live run requires your own API keys.
+Local checks cover Python syntax, the offline illustration, mocked tool calls, review validation, feedback transfer and the revision limit. The web interface is also checked against the demo API, invalid input and disabled live mode. These checks do not establish live model quality or verify actual venues. A live run requires your own API keys.
 
 ## References
 
@@ -75,3 +99,4 @@ Local checks cover Python syntax, the offline illustration, mocked tool calls, r
 - [OpenAI: Chat Completions API](https://developers.openai.com/api/reference/resources/chat)
 - [Tavily Search](https://docs.tavily.com/documentation/api-reference/endpoint/search)
 - [Tavily Extract](https://docs.tavily.com/documentation/api-reference/endpoint/extract)
+- [Python local HTTP server](https://docs.python.org/3/library/http.server.html)
