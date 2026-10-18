@@ -1,0 +1,27 @@
+{
+  "users": [
+    {"id": "U001", "name": "Demo Analyst", "active": true},
+    {"id": "U002", "name": "Demo Operator", "active": true},
+    {"id": "U003", "name": "Demo Reviewer", "active": true},
+    {"id": "U004", "name": "Demo Former User", "active": false}
+  ],
+  "roles": [
+    {"id": "payment_creator", "name": "Create payments"},
+    {"id": "payment_approver", "name": "Approve payments"},
+    {"id": "vendor_creator", "name": "Create vendors"},
+    {"id": "vendor_approver", "name": "Approve vendors"}
+  ],
+  "assignments": [
+    {"user_id": "U001", "role_id": "payment_creator"},
+    {"user_id": "U001", "role_id": "payment_approver"},
+    {"user_id": "U002", "role_id": "vendor_creator"},
+    {"user_id": "U002", "role_id": "vendor_approver"},
+    {"user_id": "U003", "role_id": "payment_approver"},
+    {"user_id": "U004", "role_id": "payment_creator"},
+    {"user_id": "U004", "role_id": "payment_approver"}
+  ],
+  "conflicts": [
+    {"role_a": "payment_creator", "role_b": "payment_approver", "reason": "Payment creation and approval require separate reviewers in this example policy."},
+    {"role_a": "vendor_creator", "role_b": "vendor_approver", "reason": "Vendor creation and approval require separate reviewers in this example policy."}
+  ]
+}
