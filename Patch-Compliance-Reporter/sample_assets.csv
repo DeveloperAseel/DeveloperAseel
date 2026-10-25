@@ -1,0 +1,6 @@
+asset_id,hostname,owner,criticality,last_patch_date,max_age_days,active
+AST-001,finance-laptop-01,Finance,high,2026-10-01,30,true
+AST-002,public-web-01,Infrastructure,critical,2026-09-10,30,true
+AST-003,hr-laptop-02,Human Resources,medium,2026-10-10,30,true
+AST-004,training-pc-03,Learning,low,2026-08-15,60,false
+AST-005,test-server-01,Development,high,2026-10-30,14,true
