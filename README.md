@@ -44,6 +44,10 @@ A Java command-line tool that extracts URLs, IPv4 addresses, email addresses, an
 
 A Python automation tool that finds missing values, duplicate rows, and invalid email formats in CSV datasets and calculates data completeness.
 
+### [Authentication Log Analyzer](https://github.com/DeveloperAseel/DeveloperAseel/tree/main/Authentication-Log-Analyzer)
+
+A Java tool that detects repeated authentication failures and successful logins following a configurable failure threshold.
+
 ## Technical toolkit
 
 - **Programming:** Java, Python, JavaScript, SQL
